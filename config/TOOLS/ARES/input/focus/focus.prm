@@ -1,0 +1,119 @@
+# Parameters for target orbit prropagation interface
+# #######################################################
+# -------------------------------------------------------
+# Basic propagator settings
+# -------------------------------------------------------
+# Info Text
+  MASTER v8.0.0
+  Target orbit propagation
+#
+# Proposed time step (NOT OUTPUT STEP)
+  0.1d0         Proposed step size [days] (default: 0.1d0)
+#
+# Fixed step integration
+  false         false = use variable step with
+#               true  = use fixed step width
+#
+# Tolerance in variable stepsize integration
+  1.d-11        relative tolerance (default: 1.d-11)
+  1.d-12        absolut tolerance (default: 1.d-12)
+# -------------------------------------------------------
+#  Extended propagator settings
+# -------------------------------------------------------
+# Tolerated absolut propagation errors of Kepler elements
+  -1.d-6 1.d-10 5.d-7 5.d-7 5.d-7 5.d-7
+  4             Integration order [0:8] (AB/AM integration method) (default: 4)
+  2             Maximum Corrector Steps [0:9] (default: 2)
+  100.d0        Perigee altitude stop (km)  (default: 100.d0)
+  100.d0        Apogee altitude stop (km)   (default: 100.d0)
+  100.d0        Geodetic altitude stop (km) (default: 100.d0)
+#
+#
+# Altitude stop switch:
+#     0    Ignore altitude stop
+#     1   stop, if both stops are passed
+#     2   stop, if one of both stops are passed
+  2
+# -------------------------------------------------------
+# Satellite Properties
+# -------------------------------------------------------
+  0.d0          Axis pointing Right Ascension [deg]
+  0.d0          Axis pointing Declination     [deg]
+# -------------------------------------------------------
+# Perturbation switches
+# -------------------------------------------------------
+  true          Geopotential
+  true          Aerodynamic drag
+  false         Horizontal wind
+  true          Solar radiation pressure
+  true          Solar potential
+  true          Lunar potential
+# -------------------------------------------------------
+# Geopotential properties
+# -------------------------------------------------------
+  8             n: Geopotential degree [0:23] (default: 8)
+  8             m: Geopotential order (0 <= m <= n) (default: 8)
+# -------------------------------------------------------
+# Geopotential model
+# 1    GEM_10: Goddard Earth Model 10, complete to n = 22, additional terms up to n = 30
+# 2    GEM_10B: complete to n = 36
+# 3    GEM_T1: complete to n = 36
+# 4    GEM_L2: complete to n = 20, additional terms up to n = 30 (default)
+# 5    GRIM_3B: complete to n = 36
+# 6    PGS_S4: complete to n = 22, additional terms up to n = 36
+  3
+# -------------------------------------------------------
+  1.d-13        Maximum inc-difference to recompute inclination function (default: 1.d-13)
+  1.d-13        Recomputation of eccentricity function (default: 1.d-13)
+  0.d0          Tesseral Resonances (default: 0.0)
+  false         Denlizatormaion of geopotential coefficients (default: false)
+  false         Omitting 2nd order if J2-term (default: false)
+# -------------------------------------------------------
+# Atmosphere model
+# -------------------------------------------------------
+# 1    MSIS_90E
+# 2    MSIS_86
+# 3    MSIS_77
+# 4    JAC_LIN
+# 5    NRLMSIS_00 (default)
+# 6    NRLMSIS_00_CALIB
+  5             Atmosphere Model
+# -------------------------------------------------------
+# Solar and geomagnetic activity properties
+# -------------------------------------------------------
+  4.d0          Geomagnetic activity index Ap (default: 4)
+  120.d0        F10.7 cm Radio Flux Index (sfu) (default: 120)
+  80.d0         Mean solar Flux (default: 80)
+# -------------------------------------------------------
+# Solar and geomagnetic activity properties
+# -------------------------------------------------------
+# 0    CONSTANT_FROM_INPUT
+# 1    INTERPOLATED_MONTHLY
+# 2    STEP-MONTHLY
+# 3    INTERPOLATED_DAILY
+# 4    STEP_DAILY
+  3
+# -------------------------------------------------------
+# Solar and geomagnetic activity level
+# -------------------------------------------------------
+# 0    NOMINAL (default)
+# 1    HIGH
+# 2    LOW
+  0
+# -------------------------------------------------------
+  21   Drag quadratur order (function evaluation per step) (default: 21)
+# -------------------------------------------------------
+# Drag Quadrature Constraint
+# -------------------------------------------------------
+# 0    FULL_ORBIT
+# 1    LESS_THEN_2000km
+# 2    LESS THEN_1500km (default)
+# 3    LESS THEN_1000km
+  2
+# -------------------------------------------------------
+  2            Solar potential degree (default: 2, max: 23)
+  2            Solar potential order  (default: 2, max: 23)
+  3            Lunar potential degree (default: 3, max: 23)
+  3            Lunar potential order  (default: 3, max: 23)
+  true         Using cylindrical shadow model for SRP perturbations (default: true)
+  false        Writing output files (default: false) FOR API: SET TO FALSE
